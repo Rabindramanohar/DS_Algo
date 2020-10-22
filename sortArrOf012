@@ -1,0 +1,32 @@
+class Solution {
+    public void sortColors(int[] nums) {
+      int low = 0;
+      int mid = 0;
+      int high = nums.length-1;
+        
+      while(mid <= high) {
+        switch(nums[mid]) {
+          // if element is zero
+          case 0: {
+            int tmp = nums[low];
+            nums[low] = nums[mid];
+            nums[mid] = tmp;
+            low++;
+            mid++;
+            break;
+          }
+          // if the element is 1
+          case 1: mid++;
+            break;
+            // if element is 2
+          case 2: {
+            int tmp = nums[mid];
+            nums[mid] = nums[high];
+            nums[high] = tmp;
+            high--;
+            break;
+          }
+        }
+      }
+    }
+}
